@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Tomago – Talk to Strangers. Freely.</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="body-dark">
+  <div class="bg-glow"></div>
+
+  <header class="top-bar">
+    <div class="brand">
+      <div class="brand-logo">T</div>
+      <div class="brand-text">
+        <span class="brand-name">Tomago</span>
+        <span class="brand-tagline">Talk to Strangers. Freely.</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-center">
+    <section class="card card-landing">
+      <h1 class="headline">Welcome to Tomago</h1>
+      <p class="subtitle">
+        Meet random strangers around the world through instant video chat in a clean, distraction‑free interface.
+      </p>
+
+      <div class="divider"></div>
+
+      <section class="terms-block">
+        <h2 class="terms-title">Terms of Use</h2>
+        <ul class="terms-list">
+          <li>No nudity, harassment, hate speech, or illegal content.</li>
+          <li>Do not share sensitive personal information (address, phone, passwords).</li>
+          <li>Tomago may disconnect or block abusive users at any time.</li>
+          <li>You must be of legal age to use this service in your country.</li>
+        </ul>
+        <p class="terms-note">
+          By clicking “Accept & Start”, you confirm that you understand and agree to these terms.
+        </p>
+      </section>
+
+      <div class="actions">
+        <button class="btn btn-secondary" type="button" onclick="window.location.reload()">
+          Cancel
+        </button>
+        <button class="btn btn-primary" type="button" onclick="goToChat()">
+          Accept &amp; Start
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span class="footer-text">© <span id="year"></span> Tomago. All rights reserved.</span>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    function goToChat() {
+      window.location.href = 'chat.html';
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Tomago – Video Chat</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="body-dark">
+  <div class="bg-glow"></div>
+
+  <header class="top-bar">
+    <div class="brand">
+      <div class="brand-logo">T</div>
+      <div class="brand-text">
+        <span class="brand-name">Tomago</span>
+        <span class="brand-tagline">Talk to Strangers. Freely.</span>
+      </div>
+    </div>
+    <div class="top-actions">
+      <button class="pill pill-soft" type="button" onclick="window.location.href='index.html'">
+        Terms
+      </button>
+    </div>
+  </header>
+
+  <main class="main-chat">
+    <section class="chat-layout">
+      <div class="video-panels">
+        <div class="video-card">
+          <div class="video-label">You</div>
+          <video id="local" class="video-element" autoplay playsinline muted></video>
+        </div>
+        <div class="video-card">
+          <div class="video-label">Stranger</div>
+          <video id="remote" class="video-element" autoplay playsinline></video>
+        </div>
+      </div>
+
+      <div class="control-bar">
+        <button id="next" class="btn btn-primary">
+          Next Stranger
+        </button>
+        <button class="btn btn-ghost" type="button" onclick="stopChat()">
+          Stop
+        </button>
+        <span class="status-dot"></span>
+        <span class="status-text" id="statusText">Connecting you to a stranger…</span>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer footer-chat">
+    <span class="footer-text">Stay respectful. Tomago is not responsible for user content.</span>
+  </footer>
+
+  <!-- Socket.io + client logic -->
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="client.js"></script>
+  <script>
+    function stopChat() {
+      // Simple action: go back to landing page
+      window.location.href = 'index.html';
+    }
+
+    // Optional small status helper – you can modify your client.js to update this text if you like
+    window.addEventListener('load', () => {
+      const statusEl = document.getElementById('statusText');
+      if (statusEl) {
+        statusEl.textContent = 'Looking for someone to talk to…';
+      }
+    });
+  </script>
+</body>
+</html>
